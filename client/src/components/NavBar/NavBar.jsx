@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Navbar, Button, ButtonGroup } from "react-bootstrap";
 import { IoIosPaperPlane } from "react-icons/io";
-
-const NavBar = () => {
+import { getUser } from "../../actions/UserActions";
+const NavBar = ({ getUser }) => {
+  const flag = false;
   return (
     <Container id="conteinernavbar">
       <Navbar className="contenavbar">
         <ButtonGroup className="mr-2" aria-label="First group">
+          if(!!usuario.usuarioConectado.id{" "}
           <Button className="buttonSB" href="/" type="button">
             <IoIosPaperPlane size="10%" />
             Iniciar Sesión

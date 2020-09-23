@@ -30,7 +30,7 @@ server.get("/:id", async (req, res) => {
       usuarioId: req.params.id,
     },
   });
-  console.log(facturasId);
+
   res.status(200).json(facturasId);
 });
 module.exports = server;

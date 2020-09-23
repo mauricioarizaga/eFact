@@ -1,11 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { Form, Button, Col, FormControl, Container } from "react-bootstrap";
 import NavBar from "../NavBar/NavBar";
-import { useHistory } from "react-router-dom";
 import { listarFacturas, getUser } from "../../actions/UserActions";
-import swal from "sweetalert2";
-
+import {
+  Container,
+  Paper,
+  TableRow,
+  TableHead,
+  TableContainer,
+  Table,
+  TableCell,
+  TableBody,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+  root: {
+    flexGrow: 1,
+    maxWidth: 752,
+  },
+  demo: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  title: {
+    margin: theme.spacing(2, 0, 1),
+  },
+}));
 export function Listado({
   getUser,
   usuarioConectado,
@@ -13,6 +35,7 @@ export function Listado({
   usuario,
   listado,
 }) {
+  const classes = useStyles();
   useEffect(() => {
     getUser();
   }, []);
@@ -22,11 +45,46 @@ export function Listado({
     }
   }, [usuario.usuarioConectado]);
 
-  console.log(listado);
-  console.log(usuarioConectado.id);
   return (
     <Container>
       <NavBar />
+      <div>
+        <TableContainer component={Paper}>
+          <Table
+            className={classes.table}
+            size="small"
+            aria-label="a dense table"
+          >
+            <TableHead>
+              <TableRow>
+                <TableCell align="right">CLIENTE</TableCell>
+                <TableCell align="right">CUIT</TableCell>
+                <TableCell align="right">CANTIDAD</TableCell>
+                <TableCell align="right">PRODUCTO/SERVICIO</TableCell>
+                <TableCell align="right">SUBTOTAL</TableCell>
+                <TableCell align="right">DESCUENTOS</TableCell>
+                <TableCell align="right">TOTAL</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {listado &&
+                listado.reverse().map((e) => (
+                  <TableRow key={e.id}>
+                    <TableCell align="right">{e.cliente}</TableCell>
+                    <TableCell align="right">{e.cuit}</TableCell>
+                    <TableCell align="right">{e.cantidad}</TableCell>
+                    <TableCell align="right">{e.productos}</TableCell>
+                    <TableCell align="right">{e.subtotal}</TableCell>
+                    <TableCell align="right">{e.descuento}</TableCell>
+                    <TableCell align="right">{e.total}</TableCell>
+
+                    <TableCell align="right"></TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </Container>
   );
 }

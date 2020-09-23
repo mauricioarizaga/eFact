@@ -36,41 +36,6 @@ server.post(
   }
 );
 
-//Validar y continuar con el registro de un Usuario.
-server.get("/validate/account/:email_hash", async (req, res) => {
-  const user = await Users.findOne({
-    where: { email_hash: req.params.email_hash },
-  });
-  if (user === null) {
-    res.status(404).send({
-      status: `No se ha encontrado al Usuario especificado. Contacte a su Administrador`,
-    });
-  } else {
-    switch (user.status) {
-      case "Pendiente":
-        user.update({
-          status: "Validado",
-        });
-        res.redirect(`http://localhost:3000/new/${user.id}`);
-        res.send({
-          status: `El Usuario ${user.email} ha sido validado correctamente`,
-        });
-        break;
-      case "Validado":
-        res.send({ status: `El Usuario ${user.email} ya está validado` });
-        break;
-      case "Bloqueado":
-        res.send({
-          status: `El Usuario ${user.email} se encuentra bloqueado. Contacte a su Administrador`,
-        });
-        break;
-      default:
-        res.send({ status: `Acción no válida. Contacte a su Administrador` });
-        break;
-    }
-  }
-});
-
 server.get("/perfil", (req, res) => {
   Users.findOne({
     where: {
