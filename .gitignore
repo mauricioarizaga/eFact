@@ -1,0 +1,5 @@
+.vscode/settings.json
+efacturaUML.pdf
+class-diagram.png
+client/.gitignore
+client/package-lock.json
