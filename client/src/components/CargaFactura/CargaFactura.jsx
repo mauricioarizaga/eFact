@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { Form, Button, Col, FormControl, Container } from "react-bootstrap";
+import { Form, Button, FormControl, Container } from "react-bootstrap";
 import NavBar from "../NavBar/NavBar";
 import { useHistory } from "react-router-dom";
 import { cargaFactura, getUser } from "../../actions/UserActions";
@@ -10,6 +10,7 @@ function CargaFactura({ usuario, getUser }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [cliente, setCliente] = useState("");
+  const [emailCliente, setEmailCliente] = useState("");
   const [cuit, setCuit] = useState();
   const [cantidad, setCantidad] = useState(1);
   const [productos, setProducto] = useState("");
@@ -32,6 +33,7 @@ function CargaFactura({ usuario, getUser }) {
     subtotal,
     descuento,
     total,
+    emailCliente,
   };
 
   function handleSubmit() {
@@ -55,6 +57,12 @@ function CargaFactura({ usuario, getUser }) {
           type="text"
           value={cliente}
           onChange={(e) => setCliente(e.target.value)}
+        />
+        <h5 align="center">Email Cliente:</h5>
+        <FormControl
+          type="email"
+          value={emailCliente}
+          onChange={(e) => setEmailCliente(e.target.value)}
         />
 
         <h5 align="center">CUIT:</h5>

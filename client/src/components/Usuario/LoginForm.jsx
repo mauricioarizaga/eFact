@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import NavBar from "../NavBar/NavBar";
 import swal from "sweetalert2";
 import { LoginUser } from "../../actions/UserActions.js";

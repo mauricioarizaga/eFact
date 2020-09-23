@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Form, Button, Col, FormControl, Container } from "react-bootstrap";
+import { Form, Button, FormControl, Container } from "react-bootstrap";
 import NavBar from "../NavBar/NavBar";
 import { useHistory } from "react-router-dom";
 import { registrarUsuario } from "../../actions/UserActions";

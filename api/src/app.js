@@ -6,7 +6,8 @@ const morgan = require("morgan");
 const server = express();
 const passport = require("passport");
 const session = require("express-session");
-
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 require("./models");
 server.name = "API";
 
@@ -50,5 +51,31 @@ server.use((err, req, res, next) => {
   console.error(err);
   res.status(status).send(message);
 });
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "iFactura Swagger",
+      version: "0.1.0",
+      description: "Sistema Facturacion ",
+      license: {
+        name: "MIT",
+        url: "https://spdx.org/licenses/MIT.html",
+      },
+      contact: {
+        name: "Mauricio",
+        email: "mauricioarizaga@hotmail.com",
+      },
+    },
+    servers: [
+      {
+        url: "http://localhost:3001",
+      },
+    ],
+  },
+  apis: ["./api/routes/*.js"],
+};
 
+const specs = swaggerJsdoc(options);
+server.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 module.exports = server;
