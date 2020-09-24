@@ -64,6 +64,7 @@ export function Listado({
                 <TableCell align="right">SUBTOTAL</TableCell>
                 <TableCell align="right">DESCUENTOS</TableCell>
                 <TableCell align="right">TOTAL</TableCell>
+                <TableCell align="right">ESTADO</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -77,6 +78,7 @@ export function Listado({
                     <TableCell align="right">{e.subtotal}</TableCell>
                     <TableCell align="right">{e.descuento}</TableCell>
                     <TableCell align="right">{e.total}</TableCell>
+                    <TableCell align="right">{e.estado}</TableCell>
 
                     <TableCell align="right"></TableCell>
                   </TableRow>
