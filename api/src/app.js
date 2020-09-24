@@ -14,7 +14,7 @@ server.name = "API";
 // For Passport
 server.use(
   session({
-    name: "Conectado",
+    name: "iFacturaConectado",
     secret: "efacturatefactura2e34df545fde45fdsdft5r!=",
     resave: false,
     saveUninitialized: false,
@@ -73,7 +73,7 @@ const options = {
       },
     ],
   },
-  apis: ["./api/routes/*.js"],
+  apis: ["./routes/*.js"],
 };
 
 const specs = swaggerJsdoc(options);

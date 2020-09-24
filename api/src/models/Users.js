@@ -33,6 +33,10 @@ const Users = (sequelize, S) => {
         allowNull: true,
         unique: true,
       },
+      saldo: {
+        type: S.INTEGER,
+        allowNull: true,
+      },
       email_hash: {
         type: S.STRING,
         allowNull: false,

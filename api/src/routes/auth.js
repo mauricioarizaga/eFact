@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 
 /**
  * @swagger
- * /login:
+ * /login :
  *  post:
  *    description: Use to login app
  *    responses:
@@ -27,7 +27,7 @@ server.post(
 
 /**
  * @swagger
- * /perfil:
+ * /perfil :
  *  post:
  *    description: Use to list bills for users id
  *    responses:

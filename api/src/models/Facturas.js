@@ -46,6 +46,10 @@ const Facturas = (sequelize, S) => {
         allowNull: false,
         unique: true,
       },
+      estado: {
+        type: S.ENUM("Pagada", "Sin cancelar"),
+        defaultValue: "Sin cancelar",
+      },
     },
     { timestamps: false }
   );

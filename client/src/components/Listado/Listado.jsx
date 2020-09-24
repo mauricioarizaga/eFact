@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import NavBar from "../NavBar/NavBar";
+import NaLog from "../NavBar/NaLog";
 import { listarFacturas, getUser } from "../../actions/UserActions";
 import {
   Container,
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     flexGrow: 1,
-    maxWidth: 752,
+    maxWidth: 400,
   },
   demo: {
     backgroundColor: theme.palette.background.paper,
@@ -47,9 +47,9 @@ export function Listado({
 
   return (
     <Container>
-      <NavBar />
       <div>
         <TableContainer component={Paper}>
+          <NaLog />
           <Table
             className={classes.table}
             size="small"

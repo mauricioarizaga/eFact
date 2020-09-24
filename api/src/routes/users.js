@@ -11,7 +11,15 @@ server.get("/:id", isLoggedIn, (req, res) => {
     res.send(result);
   });
 });
-
+/**
+ * @swagger
+ * /new :
+ *  post:
+ *    description: Registrar Usuarios
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 server.post("/new", async (req, res) => {
   const { email, password, fullName, idNumber, phone } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
