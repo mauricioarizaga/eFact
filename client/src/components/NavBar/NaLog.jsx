@@ -7,11 +7,9 @@ const NaLog = () => {
       <Navbar className="contenavbar">
         <ButtonGroup className="mr-2" aria-label="First group">
           <Button className="buttonSB" href="/cargarfactura" type="button">
-            <IoIosPaperPlane size="10%" />
             Cargar Factura
           </Button>
           <Button className="buttonSB" href="/listado" type="button">
-            <IoIosPaperPlane size="10%" />
             Listado
           </Button>
         </ButtonGroup>
